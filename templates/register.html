@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block main %}
+
+    <div class="form-group">
+        <form action="/register" method="post">
+            <div>
+                <input name="username" id="username" placeholder="username" type="text" autofocus>
+            </div>
+            
+            <div>
+                <input name="password" id="password" placeholder="password" type="password" autofocus>
+            </div>
+
+            <div>
+                <input name="confirm_password" id="confirm_password" placeholder="Confirm Password" type="password" autofocus>
+            </div>
+            
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+    
+
+{% endblock %}
