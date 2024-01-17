@@ -2,7 +2,7 @@ from flask import Flask , render_template , redirect , request , session
 from werkzeug.security import generate_password_hash,check_password_hash
 from flask_session import Session
 from cs50 import SQL
-from functions import *
+from functions import check
 
 
 app = Flask(__name__)
@@ -16,8 +16,8 @@ db = SQL("sqlite:///users.db")
 
 @app.route("/")
 def index():
-    user = session.get("user_id")
-    if user:
+    
+    if check(session):
         return render_template("index.html")
     
     else:
@@ -83,7 +83,17 @@ def register():
 
         return redirect("/")
 
+@app.route("/question",methods=["GET","POST"])
+def question():
+    if request.method == "GET":
+        return render_template("question.html")
     
+    else:
+        question = request.form.get("question")
+        print(question)
+        return "<h1>Done</h1>"
+
+
 @app.route("/logout")
 def logout():
     session.clear()

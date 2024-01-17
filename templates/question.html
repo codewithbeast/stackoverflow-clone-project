@@ -1,0 +1,10 @@
+{% extends "layout.html" %}
+
+{% block main %}
+    <div style="text-align: center;">
+        <form action="/question" method="post">
+            <textarea rows="20" cols="60" name="question" id="question" placeholder="Ask a question" autofocus></textarea>
+            <button type="submit">submit</button>
+        </form>
+    </div>
+{% endblock %}
